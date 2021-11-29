@@ -1,0 +1,28 @@
+- we will discuss some best practices you should follow when working with vuex in real project hear
+
+1) alwase create store folder in your app which will contail atlest one file cald index.js where you will define all configration related to vuex store and also merge all sub modules there
+
+2) create modules folder and then create sub modules folder name base on module in those folder which will contain index.js where you will store all vuex relates state, getters, mutations, actions for that perticular module keep those modules namespaced: true alwase in first line of object and do only named exports from there and import them in main store index.js file and register it as module
+
+3) keep in mind that when you register module name in main index.js that should alwase be match will sub folder name in modules ex in modules/user/index.js then module name must be user
+
+4) alwase create common folder in mudules so you can use that sub module for all common state which is not part of any perticular module but a part of app
+
+5) alwase name mutations all in capital with _ to clearly identify that it's mutation and it will change our state and it will be easy to dubug in app
+
+6) alwase try prefix getters with get then state name, mutation with set then state name, action with add, update, delete, fetch then state name to clearlly identify which getter, muattion and action is related to which state property
+
+state = user
+getters = getUser
+mutation = SET_USER
+action = fetchUser, addUser, updateUser, deleteUser
+
+7) don't use payload word in mutation or action in payload param use some words which clearly identify which data we are expecting in our mutation or action as payload
+
+8) you can create other state file in mudule if you want in very big projects to manage same type of state but your index.js is becomming very bulky like in cart we have index.js for cart funcnality and basket for basket funcnality
+
+9) alwase use mapGetters and mapActions insted or $state in components
+
+10) if it's possible most of the time just use [] syntex insted of {} in map helpers and alwase use same name of getter and actions in component as you define in store file don't give them other alias with {} syntex most of the time
+
+11) use diffrent mapGetters or mapActions if you want to use multiple sub modules state in single component 
